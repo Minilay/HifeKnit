@@ -6,7 +6,7 @@ public class Log : MonoBehaviour
 {
     // Start is called before the first frame update
     public float rotateSpeed;
-
+    
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(!Controller.S.dying)
