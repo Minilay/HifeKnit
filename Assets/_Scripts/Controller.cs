@@ -18,14 +18,16 @@ public class Controller : MonoBehaviour
 
     public void Spawn()
     {
-        currentKnife = Instantiate<GameObject>(knifePrefab);
-        rigid = currentKnife.GetComponent<Rigidbody2D>();
-        dying = false;
-
+        if(!dying)
+        {
+            currentKnife = Instantiate<GameObject>(knifePrefab);
+            rigid = currentKnife.GetComponent<Rigidbody2D>();
+        }
     }
     void Start()
     {
         S = this;
+        dying = false;
         Spawn();
     }
 
