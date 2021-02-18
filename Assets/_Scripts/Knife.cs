@@ -14,11 +14,11 @@ public class Knife : MonoBehaviour
 
             rigid.constraints = RigidbodyConstraints2D.None;
             rigid.velocity = Vector3.zero;
-            rigid.AddTorque(Random.Range(400, 900));
-            int power = (Random.value > 0.5f) ? 30 : -30;
+            rigid.AddTorque(Random.Range(800, 1200));
+            int power = (Random.value > 0.5f) ? 50 : -50;
             rigid.AddForce(Vector3.right * power);
-            rigid.gravityScale = 1;
-            StartCoroutine(Controller.S.reload());
+            rigid.gravityScale = 1.5f;
+            StartCoroutine(GameManager.S.reload());
         }
     }
 }

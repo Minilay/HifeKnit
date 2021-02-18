@@ -9,22 +9,21 @@ public class Log : MonoBehaviour
     
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(!Controller.S.dying)
+        if(collision.transform.CompareTag("Player"))
+        {
+            print("Hit");
+            GameManager.S.knifeDecrease();
+        }
+        if(!GameManager.S.dying)
         {
             collision.gameObject.transform.SetParent(transform);
             collision.transform.tag = "Knife";
             collision.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
             collision.gameObject.GetComponent<Knife>().enabled = false;
         }
+        GameManager.S.Spawn();
 
-        Controller.S.Spawn();
     }
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         transform.Rotate(Vector3.forward, rotateSpeed * Time.deltaTime);
